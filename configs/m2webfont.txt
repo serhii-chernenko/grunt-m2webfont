@@ -1,0 +1,66 @@
+/*
+ * Copyright © Overdose Digital. All rights reserved.
+ * See LICENSE_OVERDOSE.txt for license details.
+ */
+
+/*
+ * Variables
+ */
+
+@od-icons-font-name: "<%= fontFamilyName %>";
+@od-icons-font-dir: "@{baseDir}fonts/@{od-icons-font-name}/@{od-icons-font-name}";
+
+<% for (let glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
+@<%= classPrefix %><%= glyphs[glyphIdx] %>: "\<%= codepoints[glyphIdx] %>";<% } %>
+
+/*
+* Mixins
+*/
+
+.od-icon(@_icon: false) {
+    .od-icon-content(@_icon);
+    font-family: @od-icons-font-name;
+}
+
+.od-icon-content(@_icon) when not (@_icon = false) {
+    content: @_icon;
+}
+
+/*
+ * Common
+ */
+
+& when (@media-common = true) {
+
+    .lib-font-face(
+        @family-name: @od-icons-font-name,
+        @font-path: @od-icons-font-dir,
+        @font-weight: @font-weight__regular,
+        @font-style: normal,
+        @font-display: swap
+    );
+
+    [class^="<%= classPrefix %>"]:before,
+    [class*=" <%= classPrefix %>"]:before {
+        font-family: @od-icons-font-name;
+        display: inline-block;
+        .lib-font-size(18);
+        .lib-line-height(18);
+        font-weight: @font-weight__regular;
+        font-style: normal;
+        speak: none;
+        text-decoration: inherit;
+        text-transform: none;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    <% for (let glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
+    .<%= classPrefix %><%= glyphs[glyphIdx] %> {
+        &::before {
+            content: @<%= classPrefix %><%= glyphs[glyphIdx] %>;
+        }
+    }
+    <% } %>
+}
