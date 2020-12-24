@@ -15,7 +15,7 @@ If version will be bigger than you will have the error:<br/>
 ```
 ttf2woff2.js:3 Invalid asm.js: Invalid member of stdlib
 ```
-3. *`fontforge` isn’t required for the `node` engine (see [below](#available-engines)).*
+3. *`fontforge` isn’t required for the `node` engine.*
 
 ### To downgrade your Node version
 
