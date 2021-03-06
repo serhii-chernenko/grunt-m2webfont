@@ -116,7 +116,7 @@ The mixin `.od-icon(@od-icon-{name})` will add properties such as: content and f
 
 The default engine to build a font is node in the Grunt’s config file to save minimum dependecies. But  generated icons might be broken. To fix this issue you need to change the <strong>engine</strong> from `node` to `fontforge` in the config.
 
-Just to comment the row in the file `dev/tools/grunt/configs/webfont.js`:
+Just to comment the row in the file `dev/tools/grunt/configs/m2webfont.js`:
 
 ```
 const options = {
