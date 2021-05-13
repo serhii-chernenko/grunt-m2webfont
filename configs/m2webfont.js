@@ -5,7 +5,7 @@ const themes = require('../tools/files-router').get('themes');
 
 const themeOptions = {};
 
-const { appDir, source, destFont, destCss, fontName, fontTypes } = {
+const { appDir, source, destFont, destCss, fontName } = {
     appDir: 'app/design',
     source: 'web/images/icons/font/*.svg',
     destFont: 'web/fonts',
@@ -19,7 +19,7 @@ const options = {
     types: 'woff2',
     stylesheets: ['less'],
     hashes: false,
-    engine: 'node',
+    engine: 'fontforge',
     autoHint: false,
     normalize: true,
     htmlDemo: false,

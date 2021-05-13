@@ -1,11 +1,6 @@
-/*
- * Copyright © Overdose Digital. All rights reserved.
- * See LICENSE_OVERDOSE.txt for license details.
- */
-
-/*
- * Variables
- */
+//
+//  Variables
+//  ---------------------------------------------
 
 @od-icons-font-name: "<%= fontFamilyName %>";
 @od-icons-font-dir: "@{baseDir}fonts/@{od-icons-font-name}/@{od-icons-font-name}";
@@ -13,9 +8,9 @@
 <% for (let glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
 @<%= classPrefix %><%= glyphs[glyphIdx] %>: "\<%= codepoints[glyphIdx] %>";<% } %>
 
-/*
-* Mixins
-*/
+//
+//  Mixins
+//  ---------------------------------------------
 
 .od-icon(@_icon: false) {
     .od-icon-content(@_icon);
@@ -26,9 +21,9 @@
     content: @_icon;
 }
 
-/*
- * Common
- */
+//
+//  Common
+//  ---------------------------------------------
 
 & when (@media-common = true) {
 

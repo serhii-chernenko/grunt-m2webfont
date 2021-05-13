@@ -4,3 +4,4 @@ test/tmp
 Changelog.md
 .idea
 yarn.lock
+.DS_Store
