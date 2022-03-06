@@ -27,7 +27,8 @@ const options = {
     templateOptions: {
         baseClass: 'od-icon',
         classPrefix: 'od-icon-'
-    }
+    },
+    fontSize: '24px'
 };
 
 Object.keys(themes).map(key => {
@@ -39,7 +40,7 @@ Object.keys(themes).map(key => {
         dest: join(themeDir, destFont, fontName),
         destCss: join(themeDir, destCss, fontName),
         options
-    }
+    };
 });
 
 module.exports = themeOptions;

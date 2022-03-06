@@ -2,11 +2,10 @@
 //  Variables
 //  ---------------------------------------------
 
-@od-icons-font-name: "<%= fontFamilyName %>";
-@od-icons-font-dir: "@{baseDir}fonts/@{od-icons-font-name}/@{od-icons-font-name}";
-
+@od-icons-font-name: '<%= fontFamilyName %>';
+@od-icons-font-dir: '@{baseDir}fonts/@{od-icons-font-name}/@{od-icons-font-name}';
 <% for (let glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
-@<%= classPrefix %><%= glyphs[glyphIdx] %>: "\<%= codepoints[glyphIdx] %>";<% } %>
+@<%= classPrefix %><%= glyphs[glyphIdx] %>: '\<%= codepoints[glyphIdx] %>';<% } %>
 
 //
 //  Mixins
@@ -35,12 +34,13 @@
         @font-display: swap
     );
 
-    [class^="<%= classPrefix %>"]:before,
-    [class*=" <%= classPrefix %>"]:before {
+    [class^='<%= classPrefix %>']:before,
+    [class*='<%= classPrefix %>']:before {
         font-family: @od-icons-font-name;
-        display: inline-block;
-        .lib-font-size(18);
-        .lib-line-height(18);
+        display: inline-flex;
+        align-items: center;
+        .lib-font-size(<%= fontSize %>);
+        line-height: 1;
         font-weight: @font-weight__regular;
         font-style: normal;
         speak: none;
@@ -50,7 +50,6 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-
     <% for (let glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
     .<%= classPrefix %><%= glyphs[glyphIdx] %> {
         &::before {
